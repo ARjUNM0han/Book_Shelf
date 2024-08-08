@@ -20,7 +20,7 @@ function AddBook() {
 
 
     const handleAddBook = () => {
-        console.log(bookData)
+        // console.log(bookData)
         const { id, bookName, bookDescription } = bookData
         if (!id || !bookName || !bookDescription) {
             alert('enter feilds')

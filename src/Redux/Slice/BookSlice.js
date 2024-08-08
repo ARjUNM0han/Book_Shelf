@@ -8,7 +8,11 @@ const BookSlice = createSlice({
     },
     reducers: {
         addBook: (state, action) => {
-            state.booklist.push({...action.payload})
+            if (state.booklist.find((item) => item.id == action.payload.id)) {
+                toast.info('book already added')
+            } else {
+                state.booklist.push({ ...action.payload })
+            }
         },
         deleteBook: (state, action) => {
             state.booklist = state.booklist.filter((item) => item.id != action.payload)
