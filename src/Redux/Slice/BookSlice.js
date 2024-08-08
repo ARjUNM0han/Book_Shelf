@@ -14,11 +14,23 @@ const BookSlice = createSlice({
                 state.booklist.push({ ...action.payload })
             }
         },
+        editBook: (state, action) => {
+            const { id, updatedData } = action.payload;
+            const bookToUpdate = state.booklist.find((item) => item.id === id);
+
+            if (bookToUpdate) {
+                bookToUpdate.bookName = updatedData.bookName;
+                bookToUpdate.bookDescription = updatedData.bookDescription;
+            toast.success('Book updated successfully');
+            } else {
+                toast.error('Book not found');
+            }
+        },
         deleteBook: (state, action) => {
             state.booklist = state.booklist.filter((item) => item.id != action.payload)
         }
     }
 })
 
-export const { addBook, deleteBook } = BookSlice.actions
+export const { addBook, deleteBook, editBook } = BookSlice.actions
 export default BookSlice.reducer
