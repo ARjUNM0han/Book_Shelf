@@ -4,7 +4,7 @@ import BookSlice from "./Slice/BookSlice";
 
 const store = configureStore({
     reducer:{
-        BookSlice
+        BookSlice,
     }
 })
 

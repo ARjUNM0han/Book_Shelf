@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const BookSlice = createSlice({
     name: 'books',
-    initialState : [],
+    initialState: { books: [] },
     reducers:{
         addBook:(state,action)=>{
-            state.books.push({...action.payload})
-            alert('book added')
+           state.books = [...state.books, action.payload];
         }
     }
 })
